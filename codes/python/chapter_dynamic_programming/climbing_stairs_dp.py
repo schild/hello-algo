@@ -7,7 +7,7 @@ Author: Krahets (krahets@163.com)
 
 def climbing_stairs_dp(n: int) -> int:
     """爬楼梯：动态规划"""
-    if n == 1 or n == 2:
+    if n in {1, 2}:
         return n
     # 初始化 dp 表，用于存储子问题的解
     dp = [0] * (n + 1)
@@ -21,7 +21,7 @@ def climbing_stairs_dp(n: int) -> int:
 
 def climbing_stairs_dp_comp(n: int) -> int:
     """爬楼梯：空间优化后的动态规划"""
-    if n == 1 or n == 2:
+    if n in {1, 2}:
         return n
     a, b = 1, 2
     for _ in range(3, n + 1):

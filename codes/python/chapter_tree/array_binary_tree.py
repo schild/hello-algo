@@ -24,9 +24,7 @@ class ArrayBinaryTree:
     def val(self, i: int) -> int:
         """获取索引为 i 节点的值"""
         # 若索引越界，则返回 None ，代表空位
-        if i < 0 or i >= self.size():
-            return None
-        return self.__tree[i]
+        return None if i < 0 or i >= self.size() else self.__tree[i]
 
     def left(self, i: int) -> int | None:
         """获取索引为 i 节点的左子节点的索引"""
@@ -85,15 +83,16 @@ class ArrayBinaryTree:
 
 
 """Driver Code"""
+
 if __name__ == "__main__":
     # 初始化二叉树
     # 这里借助了一个从数组直接生成二叉树的函数
     arr = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     root = list_to_tree(arr)
     print("\n初始化二叉树\n")
-    print(f"二叉树的数组表示：")
+    print("二叉树的数组表示：")
     print(arr)
-    print(f"二叉树的链表表示：")
+    print("二叉树的链表表示：")
     print_tree(root)
 
     # 数组表示下的二叉树类

@@ -17,11 +17,7 @@ def max_product_cutting(n: int) -> int:
     if b == 1:
         # 当余数为 1 时，将一对 1 * 3 转化为 2 * 2
         return int(math.pow(3, a - 1)) * 2 * 2
-    if b == 2:
-        # 当余数为 2 时，不做处理
-        return int(math.pow(3, a)) * 2
-    # 当余数为 0 时，不做处理
-    return int(math.pow(3, a))
+    return int(math.pow(3, a)) * 2 if b == 2 else int(math.pow(3, a))
 
 
 """Driver Code"""

@@ -8,7 +8,7 @@ Author: Krahets (krahets@163.com)
 def dfs(i: int, mem: list[int]) -> int:
     """记忆化搜索"""
     # 已知 dp[1] 和 dp[2] ，返回之
-    if i == 1 or i == 2:
+    if i in {1, 2}:
         return i
     # 若存在记录 dp[i] ，则直接返回之
     if mem[i] != -1:

@@ -22,9 +22,7 @@ def constant(n: int):
     a = 0
     nums = [0] * 10000
     node = ListNode(0)
-    # 循环中的变量占用 O(1) 空间
-    for _ in range(n):
-        c = 0
+    c = 0
     # 循环中的函数占用 O(1) 空间
     for _ in range(n):
         function()

@@ -40,6 +40,7 @@ def subset_sum_i_naive(nums: list[int], target: int) -> list[list[int]]:
 
 
 """Driver Code"""
+
 if __name__ == "__main__":
     nums = [3, 4, 5]
     target = 9
@@ -47,4 +48,4 @@ if __name__ == "__main__":
 
     print(f"输入数组 nums = {nums}, target = {target}")
     print(f"所有和等于 {target} 的子集 res = {res}")
-    print(f"请注意，该方法输出的结果包含重复集合")
+    print("请注意，该方法输出的结果包含重复集合")

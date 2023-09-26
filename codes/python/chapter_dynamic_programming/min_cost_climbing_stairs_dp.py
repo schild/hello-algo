@@ -8,7 +8,7 @@ Author: Krahets (krahets@163.com)
 def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
     """爬楼梯最小代价：动态规划"""
     n = len(cost) - 1
-    if n == 1 or n == 2:
+    if n in [1, 2]:
         return cost[n]
     # 初始化 dp 表，用于存储子问题的解
     dp = [0] * (n + 1)
@@ -23,7 +23,7 @@ def min_cost_climbing_stairs_dp(cost: list[int]) -> int:
 def min_cost_climbing_stairs_dp_comp(cost: list[int]) -> int:
     """爬楼梯最小代价：空间优化后的动态规划"""
     n = len(cost) - 1
-    if n == 1 or n == 2:
+    if n in [1, 2]:
         return cost[n]
     a, b = cost[1], cost[2]
     for i in range(3, n + 1):

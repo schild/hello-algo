@@ -23,16 +23,13 @@ class ArrayHashMap:
 
     def hash_func(self, key: int) -> int:
         """哈希函数"""
-        index = key % 100
-        return index
+        return key % 100
 
     def get(self, key: int) -> str:
         """查询操作"""
         index: int = self.hash_func(key)
         pair: Pair = self.buckets[index]
-        if pair is None:
-            return None
-        return pair.val
+        return None if pair is None else pair.val
 
     def put(self, key: int, val: str):
         """添加操作"""
@@ -48,27 +45,16 @@ class ArrayHashMap:
 
     def entry_set(self) -> list[Pair]:
         """获取所有键值对"""
-        result: list[Pair] = []
-        for pair in self.buckets:
-            if pair is not None:
-                result.append(pair)
+        result: list[Pair] = [pair for pair in self.buckets if pair is not None]
         return result
 
     def key_set(self) -> list[int]:
         """获取所有键"""
-        result = []
-        for pair in self.buckets:
-            if pair is not None:
-                result.append(pair.key)
-        return result
+        return [pair.key for pair in self.buckets if pair is not None]
 
     def value_set(self) -> list[str]:
         """获取所有值"""
-        result = []
-        for pair in self.buckets:
-            if pair is not None:
-                result.append(pair.val)
-        return result
+        return [pair.val for pair in self.buckets if pair is not None]
 
     def print(self):
         """打印哈希表"""

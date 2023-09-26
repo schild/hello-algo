@@ -33,12 +33,7 @@ class HashMapChaining:
         """查询操作"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # 遍历桶，若找到 key 则返回对应 val
-        for pair in bucket:
-            if pair.key == key:
-                return pair.val
-        # 若未找到 key 则返回 None
-        return None
+        return next((pair.val for pair in bucket if pair.key == key), None)
 
     def put(self, key: int, val: str):
         """添加操作"""
@@ -84,9 +79,7 @@ class HashMapChaining:
     def print(self):
         """打印哈希表"""
         for bucket in self.buckets:
-            res = []
-            for pair in bucket:
-                res.append(str(pair.key) + " -> " + pair.val)
+            res = [f"{str(pair.key)} -> {pair.val}" for pair in bucket]
             print(res)
 
 
