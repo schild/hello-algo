@@ -7,12 +7,8 @@ Author: Krahets (krahets@163.com)
 
 def edit_distance_dfs(s: str, t: str, i: int, j: int) -> int:
     """编辑距离：暴力搜索"""
-    # 若 s 和 t 都为空，则返回 0
-    if i == 0 and j == 0:
-        return 0
-    # 若 s 为空，则返回 t 长度
     if i == 0:
-        return j
+        return 0 if j == 0 else j
     # 若 t 为空，则返回 s 长度
     if j == 0:
         return i
@@ -29,12 +25,8 @@ def edit_distance_dfs(s: str, t: str, i: int, j: int) -> int:
 
 def edit_distance_dfs_mem(s: str, t: str, mem: list[list[int]], i: int, j: int) -> int:
     """编辑距离：记忆化搜索"""
-    # 若 s 和 t 都为空，则返回 0
-    if i == 0 and j == 0:
-        return 0
-    # 若 s 为空，则返回 t 长度
     if i == 0:
-        return j
+        return 0 if j == 0 else j
     # 若 t 为空，则返回 s 长度
     if j == 0:
         return i
@@ -89,12 +81,7 @@ def edit_distance_dp_comp(s: str, t: str) -> int:
         # 状态转移：其余列
         for j in range(1, m + 1):
             temp = dp[j]
-            if s[i - 1] == t[j - 1]:
-                # 若两字符相等，则直接跳过此两字符
-                dp[j] = leftup
-            else:
-                # 最少编辑步数 = 插入、删除、替换这三种操作的最少编辑步数 + 1
-                dp[j] = min(dp[j - 1], dp[j], leftup) + 1
+            dp[j] = leftup if s[i - 1] == t[j - 1] else min(dp[j - 1], dp[j], leftup) + 1
             leftup = temp  # 更新为下一轮的 dp[i-1, j-1]
     return dp[m]
 

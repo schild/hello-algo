@@ -7,10 +7,8 @@ Author: Krahets (krahets@163.com)
 
 def add_hash(key: str) -> int:
     """加法哈希"""
-    hash = 0
     modulus = 1000000007
-    for c in key:
-        hash += ord(c)
+    hash = sum(ord(c) for c in key)
     return hash % modulus
 
 

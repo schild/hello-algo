@@ -27,10 +27,8 @@ def binary_search_insertion(nums: list[int], target: int) -> int:
         m = (i + j) // 2  # 计算中点索引 m
         if nums[m] < target:
             i = m + 1  # target 在区间 [m+1, j] 中
-        elif nums[m] > target:
-            j = m - 1  # target 在区间 [i, m-1] 中
         else:
-            j = m - 1  # 首个小于 target 的元素在区间 [i, m-1] 中
+            j = m - 1  # target 在区间 [i, m-1] 中
     # 返回插入点 i
     return i
 

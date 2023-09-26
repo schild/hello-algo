@@ -37,8 +37,7 @@ def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
     """构建二叉树"""
     # 初始化哈希表，存储 inorder 元素到索引的映射
     inorder_map = {val: i for i, val in enumerate(inorder)}
-    root = dfs(preorder, inorder_map, 0, 0, len(inorder) - 1)
-    return root
+    return dfs(preorder, inorder_map, 0, 0, len(inorder) - 1)
 
 
 """Driver Code"""

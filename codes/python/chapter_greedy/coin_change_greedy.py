@@ -23,6 +23,7 @@ def coin_change_greedy(coins: list[int], amt: int) -> int:
 
 
 """Driver Code"""
+
 if __name__ == "__main__":
     # 贪心：能够保证找到全局最优解
     coins = [1, 5, 10, 20, 50, 100]
@@ -37,7 +38,7 @@ if __name__ == "__main__":
     res = coin_change_greedy(coins, amt)
     print(f"\ncoins = {coins}, amt = {amt}")
     print(f"凑到 {amt} 所需的最少硬币数量为 {res}")
-    print(f"实际上需要的最少数量为 3 ，即 20 + 20 + 20")
+    print("实际上需要的最少数量为 3 ，即 20 + 20 + 20")
 
     # 贪心：无法保证找到全局最优解
     coins = [1, 49, 50]
@@ -45,4 +46,4 @@ if __name__ == "__main__":
     res = coin_change_greedy(coins, amt)
     print(f"\ncoins = {coins}, amt = {amt}")
     print(f"凑到 {amt} 所需的最少硬币数量为 {res}")
-    print(f"实际上需要的最少数量为 2 ，即 49 + 49")
+    print("实际上需要的最少数量为 2 ，即 49 + 49")

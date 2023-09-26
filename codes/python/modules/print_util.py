@@ -10,9 +10,7 @@ from .list_node import ListNode, linked_list_to_list
 
 def print_matrix(mat: list[list[int]]):
     """Print a matrix"""
-    s = []
-    for arr in mat:
-        s.append("  " + str(arr))
+    s = [f"  {str(arr)}" for arr in mat]
     print("[\n" + ",\n".join(s) + "\n]")
 
 
@@ -58,7 +56,7 @@ def print_tree(root: TreeNode | None, prev: Trunk | None = None, is_left: bool =
         prev.str = prev_str
 
     show_trunks(trunk)
-    print(" " + str(root.val))
+    print(f" {str(root.val)}")
     if prev:
         prev.str = prev_str
     trunk.str = "   |"

@@ -35,12 +35,7 @@ def coin_change_ii_dp_comp(coins: list[int], amt: int) -> int:
     for i in range(1, n + 1):
         # 正序遍历
         for a in range(1, amt + 1):
-            if coins[i - 1] > a:
-                # 若超过背包容量，则不选硬币 i
-                dp[a] = dp[a]
-            else:
-                # 不选和选硬币 i 这两种方案之和
-                dp[a] = dp[a] + dp[a - coins[i - 1]]
+            dp[a] = dp[a] if coins[i - 1] > a else dp[a] + dp[a - coins[i - 1]]
     return dp[amt]
 
 
